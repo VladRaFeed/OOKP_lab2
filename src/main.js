@@ -68,11 +68,30 @@ class solveStrategys {
     }
 }
 
-const test = new solveRealNums(4, 2);
-console.log(test.solveDiffRealNums());
+class solver {
+    constructor(method) {
+        this.method = method;
+    }
 
-const test2 = new solveFractionsNums(1, 2, 1, 3);
-console.log(test2.solveDiffFractionsNums());
+    solve() {
+        switch(this.method) {
+            case "realnums": 
+                const test = new solveRealNums(4, 2);
+                console.log(test.solveDiffRealNums());
+                break;
+            
+            case "fractionsnums": 
+                const test2 = new solveFractionsNums(1, 2, 1, 3);
+                console.log(test2.solveDiffFractionsNums());
+                break;
+            
+            case "complexnums":
+                const test3 = new solveComplexNums(3, 2, 1, -1);
+                console.log(test3.solveDiffComplexNums());
+            
+        }
+    }
+}
 
-const test3 = new solveComplexNums(3, 2, 1, -1);
-console.log(test3.solveDiffComplexNums());
+const test = new solver("realnums")
+test.solve()
