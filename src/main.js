@@ -1,4 +1,7 @@
 import * as math from 'mathjs';
+import $ from "jquery";
+
+const formWrapper = document.querySelector(".form-wrapper");
 
 class solveRealNums {
     constructor(a,b) {
@@ -69,29 +72,76 @@ class solveStrategys {
 }
 
 class solver {
-    constructor(method) {
+    constructor(method, a, b, c, d) {
         this.method = method;
+        this.a = a;
+        this.b = b;
+        this.c = c;
+        this.d = d;
     }
 
     solve() {
         switch(this.method) {
             case "realnums": 
-                const test = new solveRealNums(4, 2);
-                console.log(test.solveDiffRealNums());
-                break;
+                const realnums = new solveRealNums(this.a, this.b);
+                const result = realnums.solveDiffRealNums();
+                return result;
             
             case "fractionsnums": 
-                const test2 = new solveFractionsNums(1, 2, 1, 3);
-                console.log(test2.solveDiffFractionsNums());
-                break;
+                const fractionsnums = new solveFractionsNums(this.a, this.b, this.c, this.d);
+                const result2 = fractionsnums.solveDiffFractionsNums();
+                return result2;
             
             case "complexnums":
-                const test3 = new solveComplexNums(3, 2, 1, -1);
-                console.log(test3.solveDiffComplexNums());
+                const complex = new solveComplexNums(this.a, this.b, this.c, this.d);
+                const result3 = complex.solveDiffComplexNums()
+                return result3; 
             
         }
     }
 }
 
-const test = new solver("realnums")
-test.solve()
+const realNumsSolve = () => {
+    const resultText = document.querySelector('.taskResult');
+    const firstNum = document.getElementById('firstnum').value;
+    const secondNum = document.getElementById('secondnum').value;
+
+    const realNumsSolve = new solver("realnums", firstNum, secondNum);
+    const ress = realNumsSolve.solve();
+    resultText.innerHTML = ``;
+    resultText.innerHTML = `Result is ${ress}`;
+}
+
+/*Dropdown Menu*/
+$('.dropdown').click(function () {
+    $(this).attr('tabindex', 1).focus();
+    $(this).toggleClass('active');
+    $(this).find('.dropdown-menu').slideToggle(300);
+});
+$('.dropdown').focusout(function () {
+    $(this).removeClass('active');
+    $(this).find('.dropdown-menu').slideUp(300);
+});
+$('.dropdown .dropdown-menu li').click(function () {
+    const selectedText = $(this).text();
+    const selectedId = $(this).attr('id');
+    $(this).parents('.dropdown').find('span').text(selectedText);
+    $(this).parents('.dropdown').find('input').attr('value', selectedId);
+    const result = selectedId;
+    switch (result) {
+        case "Task1":
+            formWrapper.innerHTML= '';
+            solveRealNumsMarkup()
+            break;
+        case "Task2":
+            formWrapper.innerHTML= '';
+            console.log("Task2");
+            break;
+        case "Task3":
+            formWrapper.innerHTML= '';
+            console.log("Task3");
+            break;
+        default:
+            console.log("No task selected");
+    }
+});
