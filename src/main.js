@@ -112,7 +112,6 @@ const realNumsSolve = () => {
     resultText.innerHTML = `Result is ${ress}`;
 }
 
-
 const solveRealNumsMarkup = () => {
     formWrapper.innerHTML = `
     <p class="taskLabel">Розрахунок частки дійсних чисел</p>
@@ -180,6 +179,53 @@ const solveFractionNumsMarkup = () => {
     acceptBtn.addEventListener('click', fractionNumsSolve);
 }
 
+const complexNumsSolve = () => {
+    const resultText = document.querySelector('.taskResult');
+    const firstNum = document.getElementById('firstnum').value;
+    const secondNum = document.getElementById('secondnum').value;
+    const thirdnum = document.getElementById('thirdnum').value;
+    const forthnum = document.getElementById('forthnum').value;
+
+    const fractionNumsSolve = new solver("complexnums", firstNum, secondNum, thirdnum, forthnum);
+    const ress = fractionNumsSolve.solve();
+    resultText.innerHTML = ``;
+    resultText.innerHTML = `Result is ${ress}`;
+}
+
+const complexNumsMarkup = () => {
+    formWrapper.innerHTML = `
+    <p class="taskLabel">Розрахунок частки комплексних чисел</p>
+        <form class="taskForm">
+            <div class="fractions-wrapper">
+                <div class="fraction-input">
+                    <div class="input-wrapper">
+                        <label for="firstnum" class="form-label">Enter first number:</label>
+                        <input type="number" class="form-input" id="firstnum" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="secondnum" class="form-label">Enter second number:</label>
+                        <input type="number" class="form-input" id="secondnum" required>
+                    </div>
+                </div>
+                <div class="fraction-input">
+                    <div class="input-wrapper">
+                        <label for="thirdnum" class="form-label">Enter thirdnum number:</label>
+                        <input type="number" class="form-input" id="thirdnum" required>
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="forthnum" class="form-label">Enter forthnum number:</label>
+                        <input type="number" class="form-input" id="forthnum" required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="taskBtn task3Btn">Calculate</button>
+            <p class="taskResult"></p>
+        </form>
+    `;
+    const acceptBtn = document.querySelector('.task3Btn');
+    acceptBtn.addEventListener('click', complexNumsSolve);
+}
+
 /*Dropdown Menu*/
 $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
@@ -207,7 +253,7 @@ $('.dropdown .dropdown-menu li').click(function () {
             break;
         case "Task3":
             formWrapper.innerHTML= '';
-            console.log("Task3");
+            complexNumsMarkup();
             break;
         default:
             console.log("No task selected");
