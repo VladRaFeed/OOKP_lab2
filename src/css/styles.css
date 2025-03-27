@@ -162,7 +162,7 @@ span.choose {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 300px;
+  width: 200px;
 }
 
 .taskBtn {
@@ -177,4 +177,15 @@ span.choose {
 .taskResult {
   font-size: 18px;
   color: #0074d9;
+}
+
+.fractions-wrapper {
+  display: flex;
+  gap: 30px;
+}
+
+.fraction-input {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
