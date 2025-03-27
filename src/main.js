@@ -112,6 +112,26 @@ const realNumsSolve = () => {
     resultText.innerHTML = `Result is ${ress}`;
 }
 
+const solveRealNumsMarkup = () => {
+    formWrapper.innerHTML = `
+    <p class="taskLabel">Розрахунок частки дійсних чисел</p>
+        <form class="taskForm">
+            <div class="input-wrapper">
+                <label for="firstnum" class="form-label">Enter first number:</label>
+                <input type="number" class="form-input" id="firstnum" required>
+            </div>
+            <div class="input-wrapper">
+                <label for="secondnum" class="form-label">Enter second number:</label>
+                <input type="number" class="form-input" id="secondnum" required>
+            </div>
+            <button type="button" class="taskBtn task1Btn">Calculate</button>
+            <p class="taskResult"></p>
+        </form>
+    `;
+    const acceptBtn = document.querySelector('.task1Btn');
+    acceptBtn.addEventListener('click', realNumsSolve);
+}
+
 /*Dropdown Menu*/
 $('.dropdown').click(function () {
     $(this).attr('tabindex', 1).focus();
