@@ -112,6 +112,7 @@ const realNumsSolve = () => {
     resultText.innerHTML = `Result is ${ress}`;
 }
 
+
 const solveRealNumsMarkup = () => {
     formWrapper.innerHTML = `
     <p class="taskLabel">Розрахунок частки дійсних чисел</p>
