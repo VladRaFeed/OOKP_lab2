@@ -1,0 +1,16 @@
+import{$ as n,d as c,c as a}from"./assets/vendor-B99ow-yP.js";(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function t(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(s){if(s.ep)return;s.ep=!0;const o=t(s);fetch(s.href,o)}})();const u=document.querySelector(".form-wrapper");class d{constructor(e,t){this.a=e,this.b=t}solveDiffRealNums(){return c(this.a,this.b)}}class m{constructor(e,t,r,s){this.a=e,this.b=t,this.c=r,this.d=s}solveDiffFractionsNums(){const e=c(this.a,this.b),t=c(this.c,this.d);return c(e,t)}}class f{constructor(e,t,r,s){this.a=e,this.b=t,this.c=r,this.d=s}solveDiffComplexNums(){const e=a(this.a,this.b),t=a(this.c,this.d);return c(e,t)}}class p{constructor(e,t,r,s,o){this.method=e,this.a=t,this.b=r,this.c=s,this.d=o}solve(){switch(this.method){case"realnums":return new d(this.a,this.b).solveDiffRealNums();case"fractionsnums":return new m(this.a,this.b,this.c,this.d).solveDiffFractionsNums();case"complexnums":return new f(this.a,this.b,this.c,this.d).solveDiffComplexNums()}}}const h=()=>{const i=document.querySelector(".taskResult"),e=document.getElementById("firstnum").value,t=document.getElementById("secondnum").value,s=new p("realnums",e,t).solve();i.innerHTML="",i.innerHTML=`Result is ${s}`},b=()=>{u.innerHTML=`
+    <p class="taskLabel">Розрахунок частки дійсних чисел</p>
+        <form class="taskForm">
+            <div class="input-wrapper">
+                <label for="firstnum" class="form-label">Enter first number:</label>
+                <input type="number" class="form-input" id="firstnum" required>
+            </div>
+            <div class="input-wrapper">
+                <label for="secondnum" class="form-label">Enter second number:</label>
+                <input type="number" class="form-input" id="secondnum" required>
+            </div>
+            <button type="button" class="taskBtn task1Btn">Calculate</button>
+            <p class="taskResult"></p>
+        </form>
+    `,document.querySelector(".task1Btn").addEventListener("click",h)};n(".dropdown").click(function(){n(this).attr("tabindex",1).focus(),n(this).toggleClass("active"),n(this).find(".dropdown-menu").slideToggle(300)});n(".dropdown").focusout(function(){n(this).removeClass("active"),n(this).find(".dropdown-menu").slideUp(300)});n(".dropdown .dropdown-menu li").click(function(){const i=n(this).text(),e=n(this).attr("id");switch(n(this).parents(".dropdown").find("span").text(i),n(this).parents(".dropdown").find("input").attr("value",e),e){case"Task1":u.innerHTML="",b();break;case"Task2":u.innerHTML="",console.log("Task2");break;case"Task3":u.innerHTML="",console.log("Task3");break;default:console.log("No task selected")}});
+//# sourceMappingURL=index.js.map
