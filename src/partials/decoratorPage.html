@@ -1,21 +1,27 @@
-<section>
+<section class="sp-section">
   <h1>Патерни проектування</h1>
   <h2>Патерн проектування Декоратор</h2>
-  <div class="container">
-    <span class="choose">Choose Task</span>
+  <ul class="products-list"></ul>
+  <!-- <div class="product-card">
+    <img src="img/product.jpg" alt="Product" />
+    <h3>Навушники TWS Samsung Galaxy Buds3 Pro Silver</h3>
+    <p class="price">$100</p>
+  </div> -->
 
-    <div class="dropdown">
-      <div class="select">
-        <span>Select Task</span>
-        <i class="fa fa-chevron-left"></i>
-      </div>
-      <input type="hidden" id="tasks" />
-      <ul class="dropdown-menu">
-        <li id="Task1">Task 1</li>
-        <li id="Task2">Task 2</li>
-        <li id="Task3">Task 3</li>
-      </ul>
+  <form class="checboxes-form">
+    <div class="form-field">
+      <input type="checkbox" id="discount" class="form-input" />
+      <label for="discount" class="form-label">Знижка</label>
     </div>
-  </div>
+    <div class="form-field">
+      <input type="checkbox" id="new" class="form-input" />
+      <label for="new" class="form-label">Новинка</label>
+    </div>
+    <div class="form-field">
+      <input type="checkbox" id="popular" class="form-input" />
+      <label for="popular" class="form-label">Популярний товар</label>
+    </div>
+  </form>
+
   <div class="form-wrapper"></div>
 </section>
