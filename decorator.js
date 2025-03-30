@@ -1,2 +1,8 @@
-import"./assets/styles-BwZPiAiB.js";import{$ as e}from"./assets/vendor-sGuRfugF.js";const o=document.querySelector(".form-wrapper");e(".dropdown").click(function(){e(this).attr("tabindex",1).focus(),e(this).toggleClass("active"),e(this).find(".dropdown-menu").slideToggle(300)});e(".dropdown").focusout(function(){e(this).removeClass("active"),e(this).find(".dropdown-menu").slideUp(300)});e(".dropdown .dropdown-menu li").click(function(){const s=e(this).text(),t=e(this).attr("id");switch(e(this).parents(".dropdown").find("span").text(s),e(this).parents(".dropdown").find("input").attr("value",t),t){case"Task1":o.innerHTML="",console.log("Task1");break;case"Task2":o.innerHTML="",console.log("Task2");break;case"Task3":o.innerHTML="",console.log("Task3");break;default:console.log("No task selected")}});
+import"./assets/modulepreload-polyfill-B5Qt9EMX.js";class r{constructor(e,o,d){this.productImage=e,this.productTitle=o,this.price=d}createCard(){const e=document.querySelector(".products-list");e.innerHTML=`
+        <div class="product-card">
+            <img src="${this.productImage}" alt="Product" />
+            <h3>${this.productTitle}</h3>
+            <p class="price">${this.price}</p>
+        </div>
+        `}}const s=new r("img/product.jpg","Навушники TWS Samsung Galaxy Buds3 Pro Silver","$100");s.createCard();document.querySelector(".form-wrapper");const c=document.querySelector(".product-card"),n=document.getElementById("discount"),a=document.getElementById("new"),i=document.getElementById("popular"),u=t=>{c.classList.toggle("discounted")},l=t=>{c.classList.toggle("new-product")},p=t=>{c.classList.toggle("popular")};n.addEventListener("click",u);a.addEventListener("click",l);i.addEventListener("click",p);
 //# sourceMappingURL=decorator.js.map
