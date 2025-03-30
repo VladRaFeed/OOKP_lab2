@@ -1,4 +1,4 @@
-import { ProductCard } from './card.js';
+import { ProductCard, ProductCardDiscount, ProductCardNew, ProductCardPopular } from './card.js';
 
 const newCard = new ProductCard(
   'img/product.jpg',
@@ -8,7 +8,6 @@ const newCard = new ProductCard(
 
 newCard.createCard();
 
-const formWrapper = document.querySelector('.form-wrapper');
 const productCard = document.querySelector('.product-card');
 
 const discountChecBox = document.getElementById('discount');
@@ -16,15 +15,18 @@ const newChecBox = document.getElementById('new');
 const popularChecBox = document.getElementById('popular');
 
 const addDiscountToCard = e => {
-  productCard.classList.toggle('discounted');
+  const newToggle = new ProductCardDiscount(newCard);
+  newToggle.toogleDiscountToCard();
 };
 
 const addNewToCard = e => {
-  productCard.classList.toggle('new-product');
+  const newToggle = new ProductCardNew(newCard);
+  newToggle.toggleNewToCard();
 };
 
 const addPopularToCard = e => {
-  productCard.classList.toggle('popular');
+  const newToggle = new ProductCardPopular(newCard);
+  newToggle.tooglePopularToCard();
 };
 
 discountChecBox.addEventListener('click', addDiscountToCard);

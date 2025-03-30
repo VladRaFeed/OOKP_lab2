@@ -16,3 +16,36 @@ export class ProductCard {
         `;
   }
 }
+
+export class ProductCardDiscount extends ProductCard {
+  constructor(card) {
+    super(card);
+  }
+
+  toogleDiscountToCard = e => {
+    const productCard = document.querySelector('.product-card');
+    productCard.classList.toggle('discounted');
+  }
+}
+
+export class ProductCardNew extends ProductCard {
+  constructor(card) {
+    super(card);
+  }
+
+  toggleNewToCard = e => {
+    const productCard = document.querySelector('.product-card');
+    productCard.classList.toggle('new-product');
+  }
+}
+
+export class ProductCardPopular extends ProductCard {
+  constructor(card) {
+    super(card);
+  }
+
+  tooglePopularToCard = e => {
+    const productCard = document.querySelector('.product-card');
+    productCard.classList.toggle('popular');
+  }
+}
