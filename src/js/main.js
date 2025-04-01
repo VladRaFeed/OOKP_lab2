@@ -78,26 +78,21 @@ class solver {
     this.d = d;
   }
 
-  solve() {
+  solve() { 
+
+    const solveStrategy = new solveStrategys();
+
     switch (this.method) {
       case 'realnums':
-        const realnums = new solveRealNums(this.a, this.b);
-        const result = realnums.solveDiffRealNums();
+        const result = solveStrategy.solveRealNums(this.a, this.b);
         return result;
 
       case 'fractionsnums':
-        const fractionsnums = new solveFractionsNums(
-          this.a,
-          this.b,
-          this.c,
-          this.d
-        );
-        const result2 = fractionsnums.solveDiffFractionsNums();
+        const result2 = solveStrategy.solveDiffFractionsNums(this.a, this.b, this.c, this.d);
         return result2;
 
       case 'complexnums':
-        const complex = new solveComplexNums(this.a, this.b, this.c, this.d);
-        const result3 = complex.solveDiffComplexNums();
+        const result3 = solveStrategy.solveDiffComplexNums(this.a,this.b,this.c,this.d);
         return result3;
     }
   }
